@@ -1,0 +1,6 @@
+extend type Mutation {
+    # for  
+    ReviewPackage(input: createPackageReviewInput! @spread ): PackageReview @create(model: "App\\Models\\PackageReview")
+
+
+}

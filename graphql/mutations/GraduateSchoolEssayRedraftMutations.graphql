@@ -1,0 +1,24 @@
+extend type Mutation {
+    CreateGraduateSchoolEssayRedraft(input: CreateGraduateSchoolEssayRedraftInput! @spread): GraduateSchoolEssayRedraft
+        @field(resolver: "GraduateSchoolEssayRedraft@resolve")
+
+
+    DeclineGraduateSchoolEssayRedraft(
+        input: AssignGraduateSchoolEssayRedraftInput! @spread
+    ): GraduateSchoolEssayRedraft  @field(resolver: "GraduateSchoolEssayRedraft@decline_assign")
+
+    ApproveGraduateSchoolEssayRedraft(
+        input: AssignGraduateSchoolEssayRedraftInput! @spread
+    ): GraduateSchoolEssayRedraft  @field(resolver: "GraduateSchoolEssayRedraft@approve_assign")
+
+    AssignSelfGraduateSchoolEssayRedraft(
+        input: AssignGraduateSchoolEssayRedraftInput! @spread
+    ): GraduateSchoolEssayRedraft  @field(resolver: "GraduateSchoolEssayRedraft@assign_self")
+
+
+    UpdateGraduateSchoolEssayRedraft(input: UpdateGraduateSchoolEssayRedraftInput! @spread): GraduateSchoolEssayRedraft
+        @update(model: "App\\Models\\GraduateSchoolEssayRedraft")
+
+    DeleteGraduateSchoolEssayRedraft(id: ID!): GraduateSchoolEssayRedraft
+        @delete(model: "App\\Models\\GraduateSchoolEssayRedraft")
+}

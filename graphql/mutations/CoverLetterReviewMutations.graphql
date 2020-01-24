@@ -1,0 +1,27 @@
+extend type Mutation {
+    CreateCoverLetterReview(
+        input: CreateCoverLetterReviewInput! @spread
+    ): CoverLetterReview  @field(resolver: "CoverLetterReview@resolve")
+
+    DeclineCoverLetterReview(
+        input: AssignCoverLetterReviewInput! @spread
+    ): CoverLetterReview  @field(resolver: "CoverLetterReview@decline_assign")
+
+    ApproveCoverLetterReview(
+        input: AssignCoverLetterReviewInput! @spread
+    ): CoverLetterReview  @field(resolver: "CoverLetterReview@approve_assign")
+
+    AssignSelfCoverLetterReview(
+        input: AssignCoverLetterReviewInput! @spread
+    ): CoverLetterReview  @field(resolver: "CoverLetterReview@assign_self")
+
+    
+    # @create(model: "App\\Models\\CoverLetterReview")
+    
+    UpdateCoverLetterReview(
+        input: UpdateCoverLetterReviewInput! @spread
+    ): CoverLetterReview @update(model: "App\\Models\\CoverLetterReview")
+
+    DeleteCoverLetterReview(id: ID!): CoverLetterReview
+        @delete(model: "App\\Models\\CoverLetterReview")
+}

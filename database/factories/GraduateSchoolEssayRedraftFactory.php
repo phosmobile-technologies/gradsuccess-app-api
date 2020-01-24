@@ -1,0 +1,50 @@
+<?php
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+use App\Models\GraduateSchoolEssayRedraft;
+use Faker\Generator as Faker;
+
+$factory->define(GraduateSchoolEssayRedraft::class, function (Faker $faker) {
+    return [
+        'name'=> $faker->name,
+		'phone' => $faker->phoneNumber,
+		'employment_most_relevant_to_you_masters_application' => $faker->jobTitle,
+		'typical_achievements' => $faker->sentence,
+		'scholarships_and_award' => $faker->sentence,
+		'undergraduate_level_courses_master' => $faker->word(),
+		'project_dissertation_name_master'=> $faker->sentence,
+		'most_recent_undergraduate' => $faker->sentence,
+		'undergraduate_level_grade'=> $faker->randomElement(['Credit', 'Pass', 'Fail']),
+		'result_ranking' => $faker->randomElement(['Credit', 'Pass', 'Fail']),
+		'undergraduate_level_courses_phd' => $faker->sentence,
+		'project_dissertation_name_phd' => $faker->domainName,
+		'leadership_experience' => $faker->sentence(300),
+		'interpersonal_skills'=> $faker->boolean,
+		'presentation_skills'=> $faker->boolean,
+		'programming'=> $faker->boolean,
+		'microsoft_excel'=> $faker->boolean,
+		'java'=> $faker->boolean,
+		'other_skills'=> $faker->boolean,
+		'extracurricular_activities'=> $faker->sentence,
+		'professional_workshops'=> $faker->sentence,
+		'academic_conferences_attended'=> $faker->sentence,
+		'certificate'=> $faker->company,
+		'english' => $faker->boolean,
+		'french' => $faker->boolean,
+		'german'=> $faker->boolean,
+		'spanish' => $faker->boolean,
+		'nigeria_languages' => $faker->boolean,
+		'other_languages' => $faker->sentence,
+		'masters_intended_area_of_research'=> $faker->sentence,
+		'university_of_choice_and_course' => $faker->company,
+		'modules_interested'=> $faker->sentence,
+		'teaching_personnel_contacted'=> $faker->name,
+		'summary_of_interest'=> $faker->sentence(200),
+		'post_study_goal' => $faker->sentence,
+		'referee' => $faker->name,
+		'attached_file' => $faker->imageUrl(),
+        'assigned_associate_id' => $faker->numberBetween(5,6),
+		'user_id' => $faker->numberBetween(1,3),
+        'package_id' => $faker->numberBetween(1,5),
+        'status' => $faker->randomElement(['New','Assigned','Completed']),
+    ];
+});

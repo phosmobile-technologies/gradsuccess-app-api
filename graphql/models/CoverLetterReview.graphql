@@ -1,0 +1,20 @@
+type CoverLetterReview {
+    id: ID!
+    name: String!   #name which resume is based upon
+    industry_applied_for: String!
+    summary_of_interest: String!
+    attached_file: String
+    assigned_associate_id: String
+    user_id: ID!
+    package_id:ID!
+    package: Package @hasOne
+    status: PackageStatus!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+enum PackageStatus {
+    New
+    Assigned
+    Completed
+    Pending
+}

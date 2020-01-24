@@ -1,0 +1,9 @@
+type PackageReview {
+    id: ID!
+    associate_id: String!
+    package_id: String!
+    rating: String!
+    comment: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}

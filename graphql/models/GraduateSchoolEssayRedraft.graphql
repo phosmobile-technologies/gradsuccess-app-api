@@ -1,0 +1,56 @@
+type GraduateSchoolEssayRedraft {
+    id: ID!
+    name: String!   #name which resume is based upon
+    phone: String!
+    employment_most_relevant_to_you_masters_application: String!
+    typical_achievements: String!
+    scholarships_and_award: String!
+    undergraduate_level_courses_master: String!
+    project_dissertation_name_master: String!
+    most_recent_undergraduate: String!
+    undergraduate_level_grade: String!
+    result_ranking: String!
+    undergraduate_level_courses_phd: String!
+    project_dissertation_name_phd: String!
+    leadership_experience: String!
+    interpersonal_skills: Boolean!
+    presentation_skills: Boolean!
+    programming: Boolean!
+    microsoft_excel: Boolean!
+    java: Boolean!
+    other_skills: String!
+    extracurricular_activities: String!
+    professional_workshops: String!
+    academic_conferences_attended: String!
+    certificate: String!
+    english: Boolean!
+    french: Boolean!
+    german: Boolean!
+    spanish: Boolean!
+    nigeria_languages: Boolean!
+    other_languages: String!
+    masters_intended_area_of_research: String!
+    university_of_choice_and_course: String!
+    modules_interested: String!
+    teaching_personnel_contacted: String!
+    summary_of_interest: String!
+    post_study_goal: String!
+    referee: String!
+    attached_file: String
+    package: String!
+    assigned_associate_id: String
+    user_id: ID!
+    package_id:ID!
+    package: Package @hasOne
+    status: PackageStatus!
+    completed: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+enum PackageStatus {
+    New
+    Assigned
+    Completed
+    Pending
+}

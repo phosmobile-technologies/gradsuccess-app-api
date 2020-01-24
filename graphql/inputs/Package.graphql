@@ -1,0 +1,14 @@
+# input which allowed user rating an expert based on a package service 
+
+input CreatePackageInput {
+    package_name: String!   #name which resume is based upon
+    turn_around_time: TurnAroundTime!
+    amount: Float!
+}
+
+input UpdatePackageInput {
+    id: ID!
+    package_name: String!   #name which resume is based upon
+    turn_around_time: TurnAroundTime!
+    amount: Float!
+}

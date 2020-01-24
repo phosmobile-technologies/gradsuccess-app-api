@@ -1,0 +1,8 @@
+# input which allowed user rating an expert based on a package service 
+
+input createPackageReviewInput {
+    associate_id: String!
+    package_id: String!
+    rating: String!
+    comment: String
+}

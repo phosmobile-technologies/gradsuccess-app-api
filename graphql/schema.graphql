@@ -1,0 +1,92 @@
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-01-01 13:00:00`."
+scalar DateTime
+    @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+"A date string with format `Y-m-d`, e.g. `2011-05-23`."
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+"Can be used as an argument to upload files using https://github.com/jaydenseric/graphql-multipart-request-spec"
+scalar Upload
+    @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Upload")
+
+
+#import inputs/*.graphql
+#import models/*.graphql
+#import mutations/*.graphql
+
+
+type Query {
+    users: [User!]! @paginate(type: "paginator", model: "App\\User")
+    getAllCoverLetterReview: [CoverLetterReview!]! @all
+    getAllResumeReview: [ResumeReview!]! @all
+    getAllGraduateSchoolStatementReview: [GraduateSchoolStatementReview!]! @all
+    getAllCoverLetterRedraft: [CoverLetterRedraft!]! @all
+    getAllGraduateSchoolEssayRedraft: [GraduateSchoolEssayRedraft!]! @all
+    allExpertDetail: [ExpertDetail!]! @all
+
+    user(id: ID @eq): User @find(model: "App\\User")
+    getExpert(id: ID @eq): User @find(model: "App\\User")
+    getExpertDetail(associate_id: ID @eq): ExpertDetail
+        @find(model: "App\\Models\\ExpertDetail")
+
+    getExperts(account_type: String! @where(operator: "Expert")): [User!]! @all
+
+    applicationReview(_id: String @eq): PackageReview
+        @find(model: "App\\Models\\PackageReview")
+
+    getClientMessages(client_id: String! @where(operator: "=")): [Messages!]!
+        @all
+    getExpertClientMessages(
+        associate_id: String! @where(operator: "=")
+        client_id: String! @where(operator: "=")
+    ): [Messages!]! @all
+
+    getExpertInCharge(id: ID! @where(operator: "=")): [User!]! @all
+
+    getExpertClientsCoverLetterReview(
+        assigned_associate_id: ID! @where(operator: "=")
+    ): [CoverLetterReview!]! @all
+    getExpertClientsResumeReview(
+        assigned_associate_id: ID! @where(operator: "=")
+    ): [ResumeReview!]! @all
+    getExpertClientsGraduateSchoolStatementReview(
+        assigned_associate_id: ID! @where(operator: "=")
+    ): [GraduateSchoolStatementReview!]! @all
+    getExpertClientsCoverLetterRedraft(
+        assigned_associate_id: ID! @where(operator: "=")
+    ): [CoverLetterRedraft!]! @all
+    getExpertClientsGraduateSchoolEssayRedraft(
+        assigned_associate_id: ID! @where(operator: "=")
+    ): [GraduateSchoolEssayRedraft!]! @all
+
+    getCoverLetterReview(id: String @eq): CoverLetterReview
+        @find(model: "App\\Models\\CoverLetterReview")
+    getResumeReview(id: String @eq): ResumeReview
+        @find(model: "App\\Models\\ResumeReview")
+    getGraduateSchoolStatementReview(
+        id: String @eq
+    ): GraduateSchoolStatementReview
+        @find(model: "App\\Models\\GraduateSchoolStatementReview")
+    getCoverLetterRedraft(id: String @eq): CoverLetterRedraft
+        @find(model: "App\\Models\\CoverLetterRedraft")
+    getGraduateSchoolEssayRedraft(id: String @eq): GraduateSchoolEssayRedraft
+        @find(model: "App\\Models\\GraduateSchoolEssayRedraft")
+
+    me: User @middleware(checks: "auth:api") @auth
+
+
+    greet(id: ID!): User
+}
+type Mutation {
+    resetForgottenPassword(
+        email: String @rules(apply: ["required"])
+        token: String @rules(apply: ["required"])
+    ): PasswordReset @create(model: "App\\Models\\PasswordReset")
+}
+
+type PasswordReset {
+    email: String!
+    token: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}

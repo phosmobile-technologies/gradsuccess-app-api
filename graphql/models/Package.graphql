@@ -1,0 +1,13 @@
+type Package {
+    id: ID!
+    package_name: String!   #name which resume is based upon
+    turn_around_time: TurnAroundTime!
+    amount: Float!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+enum TurnAroundTime {
+    Flash
+    Regular
+}

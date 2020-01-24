@@ -1,0 +1,27 @@
+extend type Mutation {
+    CreateResumeReview(
+        input: CreateResumeReviewInput! @spread
+    ): ResumeReview @field(resolver: "ResumeReview@resolve")
+
+    DeclineResumeReview(
+        input: AssignResumeReviewInput! @spread
+    ): ResumeReview  @field(resolver: "ResumeReview@decline_assign")
+
+    ApproveResumeReview(
+        input: AssignResumeReviewInput! @spread
+    ): ResumeReview  @field(resolver: "ResumeReview@approve_assign")
+
+    AssignSelfResumeReview(
+        input: AssignResumeReviewInput! @spread
+    ): ResumeReview  @field(resolver: "ResumeReview@assign_self")
+
+    UpdateResumeReview(
+        input: UpdateResumeReviewInput! @spread
+    ): ResumeReview @update(model: "App\\Models\\ResumeReview")
+
+    DeleteResumeReview(id: ID!): ResumeReview
+        @delete(model: "App\\Models\\ResumeReview")
+}
+
+
+

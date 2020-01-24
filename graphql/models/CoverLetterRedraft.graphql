@@ -1,0 +1,55 @@
+type CoverLetterRedraft {
+    id: ID!
+    name: String!   #name which resume is based upon
+    address: String!
+    phone: String!
+    workplace_1: String!
+    workplace_1_roles: String
+    workplace_1_recognized_job: String
+    workplace_2: String
+    workplace_2_roles: String
+    workplace_2_recognized_job: String!
+    supervised_before: String!
+    supervised_workplace: String!
+    recent_tertiary_institute: String!
+    number_of_employee_supervised_workplace_1: Int
+    number_of_employee_supervised_workplace_2: Int
+    recent_tertiary_institute_name: String!
+    scholarship_and_awards: String!
+    final_grade_school_1: Float!
+    result_rank_school_1: String!
+    top_courses_school_1: String!
+    project_dissertation_name_school_1: String!
+    next_most_recent_tertiary_education: String!
+    final_grade_school_2: Float!
+    result_rank_school_2: String!
+    top_courses_school_2: String!
+    leadership_experience: String!
+    interpersonal_skills: Boolean!
+    presentation_skills: Boolean!
+    programming: Boolean!
+    microsoft_excel: Boolean!
+    java: Boolean!
+    other_skills: String
+    extracurricular_activities: String!
+    professional_workshops: String!
+    certification_dates: String!
+    organization_contacted_before_hand: String!
+    summary_of_interest: String
+    attached_file: String
+    assigned_associate_id: String
+    user_id: ID!
+    package_id:ID!
+    package: Package @hasOne
+    status: PackageStatus!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+
+enum PackageStatus {
+    New 
+    Assigned
+    Completed
+    Pending
+}

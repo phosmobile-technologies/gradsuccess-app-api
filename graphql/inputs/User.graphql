@@ -1,0 +1,18 @@
+input CreateUserInput {
+    first_name: String!
+    last_name: String!
+    phone: String!
+    email: String!
+    password: String! @bcrypt
+    account_type: String!
+}
+
+
+input UpdateUserInput {
+    first_name: String
+    last_name: String
+    phone: String
+    email: String
+    password: String @bcrypt
+    account_type: String
+}

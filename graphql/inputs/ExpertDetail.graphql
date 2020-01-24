@@ -1,0 +1,45 @@
+input CreateExpertDetailInput {
+    associate_id: String!
+    highest_ranked_university_attended: String!
+    qualification_at_university: String!
+    employment: String!
+    scholarships_and_awards: String
+    graduating_grade: String
+    gre_score: String
+    gmat_score: String
+    ielts: String
+    university_transcripts: String
+    attached_file: String
+    bio_bait: String!
+    where_client_from: String
+    what_jobs_client: String
+    client_reach_you_for: String
+    profile_image_ref: String
+    user_name: String!
+    bank_account_number: String!
+    bank_name: String!
+}
+
+
+input UpdateExpertDetailInput {
+    id: ID!
+    associate_id: String
+    highest_ranked_university_attended: String
+    qualification_at_university: String
+    employment: String
+    scholarships_and_awards: String
+    graduating_grade: String
+    gre_score: String
+    gmat_score: String
+    ielts: String
+    university_transcripts: String
+    attached_file: String
+    bio_bait: String
+    where_client_from: String
+    what_jobs_client: String
+    client_reach_you_for: String
+    profile_image_ref: String
+    user_name: String
+    bank_account_number: String
+    bank_name: String
+}

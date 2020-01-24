@@ -1,0 +1,22 @@
+extend type Mutation {
+    CreateGraduateSchoolStatementReview(input: CreateGraduateSchoolStatementReviewInput! @spread ): GraduateSchoolStatementReview
+       @field(resolver: "GraduateSchoolStatementReview@resolve")
+
+    DeclineGraduateSchoolStatementReview(
+        input: AssignGraduateSchoolStatementReviewInput! @spread
+    ): GraduateSchoolStatementReview  @field(resolver: "GraduateSchoolStatementReview@decline_assign")
+
+    ApproveGraduateSchoolStatementReview(
+        input: AssignGraduateSchoolStatementReviewInput! @spread
+    ): GraduateSchoolStatementReview  @field(resolver: "GraduateSchoolStatementReview@approve_assign")
+
+    AssignSelfGraduateSchoolStatementReview(
+        input: AssignGraduateSchoolStatementReviewInput! @spread
+    ): GraduateSchoolStatementReview  @field(resolver: "GraduateSchoolStatementReview@assign_self")
+
+    UpdateGraduateSchoolStatementReview(input: UpdateGraduateSchoolStatementReviewInput! @spread): GraduateSchoolStatementReview
+        @update(model: "App\\Models\\GraduateSchoolStatementReview")
+
+    DeleteGraduateSchoolStatementReview(id: ID!): GraduateSchoolStatementReview
+        @delete(model: "App\\Models\\GraduateSchoolStatementReview")
+}

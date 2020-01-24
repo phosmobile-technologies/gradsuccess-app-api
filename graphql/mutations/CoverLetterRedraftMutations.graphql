@@ -1,0 +1,29 @@
+extend type Mutation {
+    # creates a cover letter redraft package
+    CreateCoverLetterRedraft(
+        input: CreateCoverLetterRedraftInput! @spread
+    ): CoverLetterRedraft @field(resolver: "CoverLetterRedraft@resolve")
+
+
+    DeclineCoverLetterRedraft(
+        input: AssignCoverLetterRedraftInput! @spread
+    ): CoverLetterRedraft  @field(resolver: "CoverLetterRedraft@decline_assign")
+
+    ApproveCoverLetterRedraft(
+        input: AssignCoverLetterRedraftInput! @spread
+    ): CoverLetterRedraft  @field(resolver: "CoverLetterRedraft@approve_assign")
+
+    AssignSelfCoverLetterRedraft(
+        input: AssignCoverLetterRedraftInput! @spread
+    ): CoverLetterRedraft  @field(resolver: "CoverLetterRedraft@assign_self")
+    
+
+    # update a cover letter redraft package passing any fields
+    UpdateCoverLetterRedraft(
+        input: UpdateCoverLetterRedraftInput! @spread
+    ): CoverLetterRedraft @update(model: "App\\Models\\CoverLetterRedraft")
+
+    # deletes a cover letter redraft package passing any fields
+    DeleteCoverLetterRedraft(id: ID!): CoverLetterRedraft
+        @delete(model: "App\\Models\\CoverLetterRedraft")
+}

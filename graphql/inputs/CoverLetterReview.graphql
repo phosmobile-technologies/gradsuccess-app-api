@@ -1,0 +1,24 @@
+input CreateCoverLetterReviewInput {
+    name: String!   #name which resume is based upon
+    industry_applied_for: String!
+    summary_of_interest: String!
+    attached_file: String
+    assigned_associate_id: String
+    user_id: ID!
+    package_id:ID!
+    status: PackageStatus!
+}
+
+input UpdateCoverLetterReviewInput {
+    id: ID!
+    name: String    #name which resume is based upon
+    industry_applied_for: String
+    summary_of_interest: String
+    attached_file: String
+    assigned_associate_id: String
+    status: PackageStatus
+}
+input AssignCoverLetterReviewInput{
+    id:ID!
+    associate_id:ID!
+}

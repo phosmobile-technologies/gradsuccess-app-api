@@ -1,0 +1,9 @@
+extend type Mutation {
+    CreatePackage(input: CreatePackageInput! @spread): Package @create(model: "App\\Models\\Package")
+    UpdatePackage(input: UpdatePackageInput! @spread): Package @update(model: "App\\Models\\Package")
+    # @create(model: "App\\Models\\CoverLetterReview")
+
+
+    DeletePackage(id: ID!): Package
+        @delete(model: "App\\Models\\Package")
+}

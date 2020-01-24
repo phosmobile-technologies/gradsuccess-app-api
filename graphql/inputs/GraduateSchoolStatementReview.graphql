@@ -1,0 +1,24 @@
+input CreateGraduateSchoolStatementReviewInput {
+    name: String!   #name which resume is based upon
+    university_and_course_applied_for: String!
+    summary_of_interest: String!
+    attached_file: String
+    assigned_associate_id: String
+    user_id: ID!
+    package_id:ID!
+    status: PackageStatus!
+}
+
+input UpdateGraduateSchoolStatementReviewInput {
+    id: ID!
+    name: String    #name which resume is based upon
+    university_and_course_applied_for: String
+    summary_of_interest: String
+    attached_file: String
+    assigned_associate_id: String
+    status: PackageStatus
+}
+input AssignGraduateSchoolStatementReviewInput{
+    id:ID!
+    associate_id:ID!
+}

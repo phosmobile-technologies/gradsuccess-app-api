@@ -1,0 +1,8 @@
+extend type Mutation {
+    UreateUser(input: CreateUserInput! @spread): User @create(model: "App\\Models\\User")
+
+    UpdateUser(input: UpdateUserInput! @spread): User @update(model: "App\\Models\\User")
+
+    UpdateUserPassword(id: ID!, password: String! @bcrypt): User
+        @update(model: "App\\Models\\User")
+}
