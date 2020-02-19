@@ -2,6 +2,12 @@
 
 namespace App;
 
+use App\Models\CoverLetterRedraft;
+use App\Models\CoverLetterReview;
+use App\Models\AssociateDetail;
+use App\Models\GraduateSchoolEssayRedraft;
+use App\Models\GraduateSchoolStatementReview;
+use App\Models\ResumeReview;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
@@ -39,6 +45,9 @@ class User extends Authenticatable
 
     // users relationship to each package model
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function cover_letter_redrafts()
     {
         return $this->hasMany(CoverLetterRedraft::class);
@@ -62,6 +71,10 @@ class User extends Authenticatable
         return $this->hasMany(ResumeReview::class);
     }
 
+    public function details()
+    {
+        return $this->hasOne(AssociateDetail::class);
+    }
     //delete users packages when account is deletd
 
     public static function boot()

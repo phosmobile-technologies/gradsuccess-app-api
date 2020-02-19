@@ -1,3 +1,7 @@
 extend type Mutation {
-    CreateMessages(input: createMessagesInput! @spread): Messages @create(model: "App\\Models\\Messages")
+
+CreateMessage(
+        input: CreateMessagesInput! @spread
+    ): Messages  @field(resolver: "Messages@resolve")
+
 }

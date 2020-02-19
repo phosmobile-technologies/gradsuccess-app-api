@@ -55,7 +55,7 @@ class GraduateSchoolStatementReviewRepository implements GraduateSchoolStatement
      */
     public function assign_self(array $assignData): GraduateSchoolStatementReview
     {
-        // TODO: Implement assign_self() method.
+        // TODO: Implement assign_associate() method.
 
         $package = GraduateSchoolStatementReview::findOrFail($assignData['id']);
 
@@ -66,4 +66,19 @@ class GraduateSchoolStatementReviewRepository implements GraduateSchoolStatement
 
         return $package;
     }
+
+
+public function assign_associate(array $GraduateSchoolStatementReviewData): GraduateSchoolStatementReview
+{
+    // TODO: Implement assign_associate() method.
+
+    $package = GraduateSchoolStatementReview::findOrFail($GraduateSchoolStatementReviewData['id']);
+
+        $package->status = 'Assigned';
+        $package->assigned_associate_id = $GraduateSchoolStatementReviewData['associate_id'];
+
+        $package->save();
+
+        return $package;
+}
 }

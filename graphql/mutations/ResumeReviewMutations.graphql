@@ -15,6 +15,10 @@ extend type Mutation {
         input: AssignResumeReviewInput! @spread
     ): ResumeReview  @field(resolver: "ResumeReview@assign_self")
 
+    AssignAssociateResumeReview(
+        input: AssignResumeReviewInput! @spread
+    ): ResumeReview  @field(resolver: "ResumeReview@assign_associate")
+
     UpdateResumeReview(
         input: UpdateResumeReviewInput! @spread
     ): ResumeReview @update(model: "App\\Models\\ResumeReview")

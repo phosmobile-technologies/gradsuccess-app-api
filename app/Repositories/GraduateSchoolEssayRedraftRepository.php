@@ -55,12 +55,44 @@ class GraduateSchoolEssayRedraftRepository implements GraduateSchoolEssayRedraft
      */
     public function assign_self(array $assignData): GraduateSchoolEssayRedraft
     {
-        // TODO: Implement assign_self() method.
+        // TODO: Implement assign_associate() method.
 
         $package = GraduateSchoolEssayRedraft::findOrFail($assignData['id']);
 
         $package->status = 'Pending';
         $package->assigned_associate_id = $assignData['associate_id'];
+
+        $package->save();
+
+        return $package;
+    }
+
+//    /**
+//     * @param array $assignData
+//     * @return GraduateSchoolEssayRedraft
+//     */
+//    public function assign_associate(array $assignData): GraduateSchoolEssayRedraft
+//    {
+//        // TODO: Implement assign_self() method.
+//
+//        $package = GraduateSchoolEssayRedraft::findOrFail($assignData['id']);
+//
+//        $package->status = 'Assigned';
+//        $package->assigned_associate_id = $assignData['associate_id'];
+//
+//        $package->save();
+//
+//        return $package;
+//    }
+
+    public function assign_associate(array $GraduateSchoolEssayRedraftData): GraduateSchoolEssayRedraft
+    {
+        // TODO: Implement assign_associate() method.
+
+        $package = GraduateSchoolEssayRedraft::findOrFail($GraduateSchoolEssayRedraftData['id']);
+
+        $package->status = 'Assigned';
+        $package->assigned_associate_id = $GraduateSchoolEssayRedraftData['associate_id'];
 
         $package->save();
 

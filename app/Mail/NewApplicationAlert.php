@@ -19,7 +19,7 @@ class NewApplicationAlert extends Mailable
      */
     public function __construct($package)
     {
-        $this->first_name = $first_name;
+//        $this->first_name = $first_name;
         
     }
 

@@ -15,12 +15,12 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('client_id');
-            $table->string('associate_id');
-            $table->longText('message_body')->nullable();
-            $table->longText('attachment_ref')->nullable();
-            $table->longText('attachment_name')->nullable();
-            $table->longText('message_type')->nullable();
+            $table->bigInteger('sender_id');
+            $table->bigInteger('recipient_id');
+            $table->longText('message')->nullable();
+            $table->string('attached_file')->nullable();
+            $table->string('attached_file_name')->nullable();
+            $table->longText('attached_file_type')->nullable();
             $table->timestamps();
         });
     }

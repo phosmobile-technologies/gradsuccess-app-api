@@ -4,16 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateExpertDetailsTable extends Migration
+class CreateAssociateDetailsTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
+     *
      */
     public function up()
     {
-        Schema::create('expert_details', function (Blueprint $table) {
+        Schema::create('associate_details', function (Blueprint $table) {
             $table->increments('id');
             $table->string('highest_ranked_university_attended');
             $table->string('qualification_at_university');
@@ -33,6 +34,7 @@ class CreateExpertDetailsTable extends Migration
             $table->string('user_name')->nullable();
             $table->string('bank_account_number')->nullable();
             $table->string('bank_name')->nullable();
+            $table->string('user_id');
             $table->timestamps();
         });
     }
@@ -44,6 +46,6 @@ class CreateExpertDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('expert_details');
+        Schema::dropIfExists('associate_details');
     }
 }

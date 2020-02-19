@@ -76,4 +76,19 @@ class CoverLetterRedraft
 
     }
 
+
+    /**
+     * @param $rootValue
+     * @param array $args
+     * @param GraphQLContext $context
+     * @param ResolveInfo $resolveInfo
+     * @return mixed
+     */
+    public function assign_associate($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
+    {
+        // TODO implement the resolver
+        return $this->cover_letter_redraft_service->assign_associate($args);
+
+    }
+
 }

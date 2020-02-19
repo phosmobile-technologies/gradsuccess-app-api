@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Messages extends Model
 {
    protected $fillable = [
-        'user_id','associate_id','message_body','attachment_ref','attachment_name','message_type'
+        'sender_id','recipient_id','message','attached_file','attached_file_name','attached_file_type'
     ];
 }

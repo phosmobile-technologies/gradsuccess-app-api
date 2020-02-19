@@ -19,7 +19,7 @@ class NewMessageNotificationController extends Controller
         $receiver = null;
         $sender = null;
 
-        if($from === "Expert"){
+        if($from === "Associate"){
             $sender = User::where('id', $sender_id)->get();
             $receiver = User::where('form_id', $receiver_id)->get();
 

@@ -15,6 +15,9 @@ extend type Mutation {
         input: AssignCoverLetterReviewInput! @spread
     ): CoverLetterReview  @field(resolver: "CoverLetterReview@assign_self")
 
+    AssignAssociateCoverLetterReview(
+        input: AssignCoverLetterReviewInput! @spread
+    ): CoverLetterReview  @field(resolver: "CoverLetterReview@assign_associate")
     
     # @create(model: "App\\Models\\CoverLetterReview")
     

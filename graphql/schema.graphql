@@ -17,25 +17,59 @@ scalar Upload
 
 type Query {
     users: [User!]! @paginate(type: "paginator", model: "App\\User")
+    user(id: ID @eq): User @find(model: "App\\User")
+
+    #    get all packages
     getAllCoverLetterReview: [CoverLetterReview!]! @all
-    getAllResumeReview: [ResumeReview!]! @all
     getAllGraduateSchoolStatementReview: [GraduateSchoolStatementReview!]! @all
     getAllCoverLetterRedraft: [CoverLetterRedraft!]! @all
     getAllGraduateSchoolEssayRedraft: [GraduateSchoolEssayRedraft!]! @all
-    allExpertDetail: [ExpertDetail!]! @all
+    getAllResumeReview: [ResumeReview!]! @all
 
-    user(id: ID @eq): User @find(model: "App\\User")
-    getExpert(id: ID @eq): User @find(model: "App\\User")
+
+    # get packages by status
+    getCoverLetterReviewByStatus(status: PackageStatus! @where(operator: "=")): [CoverLetterReview!]! @all
+    getGraduateSchoolStatementReviewByStatus(status: PackageStatus! @where(operator: "=")): [GraduateSchoolStatementReview!]! @all
+    getCoverLetterRedraftByStatus(status: PackageStatus! @where(operator: "=")): [CoverLetterRedraft!]! @all
+    getGraduateSchoolEssayRedraftByStatus(status: PackageStatus! @where(operator: "=")): [GraduateSchoolEssayRedraft!]! @all
+    getResumeReviewByStatus(status: PackageStatus! @where(operator: "=")): [ResumeReview!]! @all
+
+
+    # get packages by assigned_associate_id
+    getCoverLetterReviewByAssociateId(assigned_associate_id: ID! @where(operator: "=")): [CoverLetterReview!]! @all
+    getGraduateSchoolStatementReviewByAssociateId(assigned_associate_id: ID! @where(operator: "=")): [GraduateSchoolStatementReview!]! @all
+    getCoverLetterRedraftByAssociateId(assigned_associate_id: ID! @where(operator: "=")): [CoverLetterRedraft!]! @all
+    getGraduateSchoolEssayRedraftByAssociateId(assigned_associate_id: ID! @where(operator: "=")): [GraduateSchoolEssayRedraft!]! @all
+    getResumeReviewByAssociateId(assigned_associate_id: ID! @where(operator: "=")): [ResumeReview!]! @all
+
+
+    # get packages for an associate
+    getAssociateCoverLetterReviewByStatus(
+        status: PackageStatus! @where(operator: "=") assigned_associate_id: ID! @where(operator: "=")): [CoverLetterReview!]! @all
+    getAssociateGraduateSchoolStatementReviewByStatus(status: PackageStatus! @where(operator: "=") assigned_associate_id: ID! @where(operator: "=")): [GraduateSchoolStatementReview!]! @all
+    getAssociateCoverLetterRedraftByStatus(status: PackageStatus! @where(operator: "=") assigned_associate_id: ID! @where(operator: "=")): [CoverLetterRedraft!]! @all
+    getAssociateGraduateSchoolEssayRedraftByStatus(status: PackageStatus! @where(operator: "=") assigned_associate_id: ID! @where(operator: "=")): [GraduateSchoolEssayRedraft!]! @all
+    getAssociateResumeReviewByStatus(status: PackageStatus! @where(operator: "=") assigned_associate_id: ID! @where(operator: "=")): [ResumeReview!]! @all
+
+    getAllAssociates(account_type: String! @where(operator: "=")): [User!]! @all(model: "App\\User")
+    getAssociate(id: ID @eq): User @find(model: "App\\User")
+    getChatListMember(id: ID @eq): User @find(model: "App\\User")
+    getAsignAssociate(id: ID @eq): User @find(model: "App\\User")
+
     getExpertDetail(associate_id: ID @eq): ExpertDetail
-        @find(model: "App\\Models\\ExpertDetail")
-
-    getExperts(account_type: String! @where(operator: "Expert")): [User!]! @all
+        @find(model: "App\\Models\\AssociateDetail")
+    allExpertDetail: [ExpertDetail!]! @all
 
     applicationReview(_id: String @eq): PackageReview
         @find(model: "App\\Models\\PackageReview")
 
-    getClientMessages(client_id: String! @where(operator: "=")): [Messages!]!
+    getMessages(client_id: String! @where(operator: "=")): [Messages!]!
         @all
+
+    getSeMessages(
+        sender_id: ID! @where(operator: "="), recipient_id: ID! @where(operator: "=")): [Messages!]! @all
+    getReMessages(sender_id: ID! @where(operator: "="), recipient_id: ID! @where(operator: "=")): [Messages!]! @all
+
     getExpertClientMessages(
         associate_id: String! @where(operator: "=")
         client_id: String! @where(operator: "=")

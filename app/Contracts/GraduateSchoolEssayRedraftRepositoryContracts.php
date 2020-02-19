@@ -32,4 +32,10 @@ interface GraduateSchoolEssayRedraftRepositoryContracts
      */
     public function assign_self(array $GraduateSchoolEssayRedraftData): GraduateSchoolEssayRedraft;
 
+    /**
+     * @param array $GraduateSchoolEssayRedraftData
+     * @return GraduateSchoolEssayRedraft
+     */
+    public function assign_associate(array $GraduateSchoolEssayRedraftData): GraduateSchoolEssayRedraft;
+
 }

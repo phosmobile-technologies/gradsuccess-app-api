@@ -79,4 +79,20 @@ class GraduateSchoolEssayRedraft
         return $this->graduate_school_essay_redraft_service->assign_self($args);
 
     }
+
+    /**
+     * @param $rootValue
+     * @param array $args
+     * @param GraphQLContext $context
+     * @param ResolveInfo $resolveInfo
+     * @return mixed
+     */
+    public function assign_associate($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
+    {
+        // TODO implement the resolver
+        return $this->graduate_school_essay_redraft_service->assign_associate($args);
+
+    }
+
+
 }

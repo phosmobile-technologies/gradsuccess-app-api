@@ -18,6 +18,7 @@ class CreatePackagesTable extends Migration
             $table->string('package_name');
             $table->string('turn_around_time');
             $table->float('amount');
+            $table->string('form_type');
             $table->timestamps();
         });
     }

@@ -35,4 +35,10 @@ namespace App\Contracts;
       */
      public function assign_self(array $CoverLetterReviewData): CoverLetterReview;
 
+     /**
+      * @param array $CoverLetterReviewData
+      * @return CoverLetterReview
+      */
+     public function assign_associate(array $CoverLetterReviewData): CoverLetterReview;
+
 }

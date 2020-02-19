@@ -16,7 +16,10 @@ extend type Mutation {
     AssignSelfCoverLetterRedraft(
         input: AssignCoverLetterRedraftInput! @spread
     ): CoverLetterRedraft  @field(resolver: "CoverLetterRedraft@assign_self")
-    
+
+    AssignAssociateCoverLetterRedraft(
+        input: AssignCoverLetterRedraftInput! @spread
+    ): CoverLetterRedraft  @field(resolver: "CoverLetterRedraft@assign_associate")
 
     # update a cover letter redraft package passing any fields
     UpdateCoverLetterRedraft(

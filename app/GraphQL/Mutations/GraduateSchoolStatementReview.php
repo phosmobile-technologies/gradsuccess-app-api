@@ -79,4 +79,20 @@ class GraduateSchoolStatementReview
 
     }
 
+
+    /**
+     * @param $rootValue
+     * @param array $args
+     * @param GraphQLContext $context
+     * @param ResolveInfo $resolveInfo
+     * @return \App\Models\GraduateSchoolStatementReview
+     */
+    public function assign_associate($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo)
+    {
+        // TODO implement the resolver
+        return $this->graduate_school_statement_review_service->assign_associate($args);
+
+    }
+
+
 }

@@ -55,7 +55,7 @@ class CoverLetterReviewRepository implements CoverLetterReviewRepositoryContract
      */
     public function assign_self(array $assignData): CoverLetterReview
     {
-        // TODO: Implement assign_self() method.
+        // TODO: Implement assign_associate() method.
 
         $package = CoverLetterReview::findOrFail($assignData['id']);
 
@@ -66,4 +66,18 @@ class CoverLetterReviewRepository implements CoverLetterReviewRepositoryContract
 
         return $package;
     }
+
+public function assign_associate(array $CoverLetterReviewData): CoverLetterReview
+{
+    // TODO: Implement assign_associate() method.
+
+    $package = CoverLetterReview::findOrFail($CoverLetterReviewData['id']);
+
+        $package->status = 'Assigned';
+        $package->assigned_associate_id = $CoverLetterReviewData['associate_id'];
+
+        $package->save();
+
+        return $package;
+}
 }

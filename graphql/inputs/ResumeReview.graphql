@@ -3,7 +3,7 @@ input CreateResumeReviewInput {
     industry_applied_for: String!
     summary_of_interest: String!
     attached_file: String
-    assigned_associate_id: String
+    assigned_associate_id: ID
     user_id: ID!
     package_id:ID!
     status: PackageStatus!
@@ -22,4 +22,5 @@ input UpdateResumeReviewInput {
 input AssignResumeReviewInput{
     id:ID!
     associate_id:ID!
+    status: PackageStatus!
 }

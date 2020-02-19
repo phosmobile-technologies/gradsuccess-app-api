@@ -12,8 +12,7 @@ type User {
     first_name: String!
     last_name: String!
     phone: String!
-    email: String!
-    password: String!
+    email: String! @rules(apply: ["required", "unique:users"])
     account_type: String!
     created_at: DateTime!
     updated_at: DateTime!
@@ -22,6 +21,7 @@ type User {
     graduate_school_essay_redrafts: [GraduateSchoolEssayRedraft!]! @hasMany
     graduate_school_statement_review: [GraduateSchoolStatementReview!]! @hasMany
     resume_reviews: [ResumeReview!]! @hasMany
+    details:ExpertDetail @hasOne
 }
 
 type AuthPayload {

@@ -1,10 +1,10 @@
-input createMessagesInput {
-    user_id: String!
-    associate_id: String!
-    message_body: String
-    attachment_ref: String
-    attachment_name: String
-    message_type: String
+input CreateMessagesInput {
+    sender_id: ID!
+    recipient_id: ID!
+    message: String
+    attached_file: String
+    attached_file_name: String
+    attached_file_type:MessageType!
 }
 
 

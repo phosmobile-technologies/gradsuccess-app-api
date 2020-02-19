@@ -32,4 +32,10 @@ interface CoverLetterRedraftRepositoryContracts
      * @return CoverLetterRedraft
      */
     public function assign_self(array $CoverLetterReviewData): CoverLetterRedraft;
+
+    /**
+     * @param array $CoverLetterReviewData
+     * @return CoverLetterRedraft
+     */
+    public function assign_associate(array $CoverLetterReviewData): CoverLetterRedraft;
 }

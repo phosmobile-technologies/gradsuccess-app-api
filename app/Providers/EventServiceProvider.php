@@ -26,6 +26,12 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\NotifyAdminOfRequestToAssignSelfPackage',
             'App\Listeners\AcknowledgeRequestToAssignSelfAPackage',
         ],
+        'App\Events\AssignAssociatePackage' => [
+            'App\Listeners\AcknowledgeAdminOfPackageAssignment',
+            'App\Listeners\NotifyAssociatePackageAssignment',
+            'App\Listeners\NotifyUserAssociateAssigned',
+        ],
+
         'App\Events\PackageApproved' => [
             'App\Listeners\AcknowledgeAdminOfPackageApproval',
             'App\Listeners\NotifyAssociateRequestApproval',
@@ -35,6 +41,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\PackageDeclined' => [
             'App\Listeners\AcknowledgeAdminOfPackageDeclination',
             'App\Listeners\NotifyAssociateRequestDeclination',
+        ],
+        'App\Events\NewMessage' => [
+            'App\Listeners\NotifyRecipientOfNewMessage',
         ],
     ];
 

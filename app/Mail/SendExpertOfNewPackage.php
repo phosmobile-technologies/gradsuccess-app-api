@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendExpertOfNewPackage extends Mailable
+class SendExpertOfNewPackage extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
     public $expert;

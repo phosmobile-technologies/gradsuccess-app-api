@@ -1,6 +1,6 @@
 extend type Mutation {
-    CreateExpertDetail(input: CreateExpertDetailInput! @spread): User @create(model: "App\\Models\\ExpertDetail")
+    CreateExpertDetail(input: CreateExpertDetailInput! @spread): User @create(model: "App\\Models\\AssociateDetail")
 
-    UpdateExpertDetail(input: UpdateExpertDetailInput! @spread): User @update(model: "App\\Models\\ExpertDetail")
+    UpdateExpertDetail(input: UpdateExpertDetailInput! @spread): User @update(model: "App\\Models\\AssociateDetail")
 
 }

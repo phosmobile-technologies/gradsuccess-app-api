@@ -14,6 +14,10 @@ extend type Mutation {
         input: AssignGraduateSchoolStatementReviewInput! @spread
     ): GraduateSchoolStatementReview  @field(resolver: "GraduateSchoolStatementReview@assign_self")
 
+    AssignAssociateGraduateSchoolStatementReview(
+        input: AssignGraduateSchoolStatementReviewInput! @spread
+    ): GraduateSchoolStatementReview  @field(resolver: "GraduateSchoolStatementReview@assign_associate")
+
     UpdateGraduateSchoolStatementReview(input: UpdateGraduateSchoolStatementReviewInput! @spread): GraduateSchoolStatementReview
         @update(model: "App\\Models\\GraduateSchoolStatementReview")
 

@@ -84,7 +84,7 @@ class ExpertDetails extends Controller
       }
 
       function getExpertInfo(Request $request) {
-        $user = User::where('account_type', "Expert")->get();
+        $user = User::where('account_type', "Associate")->get();
          return $user;
       }
 

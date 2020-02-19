@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Package extends Model
 {
     protected $fillable = [
-        'package_name','turn_around_time','amount'
+        'package_name','turn_around_time','amount', 'form_type'
     ];
     public function cover_letter_reviews()
     {

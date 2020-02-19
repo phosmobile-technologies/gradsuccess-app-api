@@ -4,6 +4,7 @@ input CreatePackageInput {
     package_name: String!   #name which resume is based upon
     turn_around_time: TurnAroundTime!
     amount: Float!
+    form_type:FormType!
 }
 
 input UpdatePackageInput {

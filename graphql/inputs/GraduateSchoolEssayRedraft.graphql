@@ -36,8 +36,7 @@ input CreateGraduateSchoolEssayRedraftInput {
     post_study_goal: String!
     referee: String!
     attached_file: String
-    package: String!
-    assigned_associate_id: String
+    assigned_associate_id: ID
     user_id: ID!
     package_id:ID!
     status: PackageStatus!
@@ -84,7 +83,6 @@ input UpdateGraduateSchoolEssayRedraftInput {
     post_study_goal: String
     referee: String
     attached_file: String
-    package: String
     assigned_associate_id: String
     status: PackageStatus
 }
@@ -92,4 +90,5 @@ input UpdateGraduateSchoolEssayRedraftInput {
 input AssignGraduateSchoolEssayRedraftInput{
     id:ID!
     associate_id:ID!
+    status: PackageStatus!
 }

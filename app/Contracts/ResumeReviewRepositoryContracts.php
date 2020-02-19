@@ -32,4 +32,10 @@ interface ResumeReviewRepositoryContracts
      * @return ResumeReview
      */
     public function assign_self(array $ResumeReviewReviewData): ResumeReview;
+
+    /**
+     * @param array $ResumeReviewReviewData
+     * @return ResumeReview
+     */
+    public function assign_associate(array $ResumeReviewReviewData): ResumeReview;
 }

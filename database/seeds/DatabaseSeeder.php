@@ -1,8 +1,11 @@
 <?php
+
+use App\Models\AssociateDetail;
 use App\Models\GraduateSchoolEssayRedraft;
 use App\Models\CoverLetterRedraft;
 use App\Models\CoverLetterReview;
 use App\Models\GraduateSchoolStatementReview;
+use App\Models\Messages;
 use App\Models\ResumeReview;
 use App\Models\Package;
 use App\User;
@@ -24,6 +27,10 @@ class DatabaseSeeder extends Seeder
         factory(GraduateSchoolStatementReview::class, 5)->create();
         factory(ResumeReview::class, 5)->create();
         factory(Package::class, 5)->create();
+        factory(AssociateDetail::class, 2)->create();
+        factory(Messages::class, 100)->create();
+
+
        DB::table('users')->insert([
             'first_name' => 'Admin',
             'last_name' => 'Gradsuccess',
@@ -33,20 +40,20 @@ class DatabaseSeeder extends Seeder
             'account_type' => 'Admin',
         ]);
         DB::table('users')->insert([
-            'first_name' => 'Expert',
+            'first_name' => 'Associate',
             'last_name' => 'One',
             'phone' => '0909348438',
             'email' => 'expert_one@gradsuccess.org',
             'password' => bcrypt('password'),
-            'account_type' => 'Expert',
+            'account_type' => 'Associate',
         ]);
         DB::table('users')->insert([
-            'first_name' => 'Expert',
+            'first_name' => 'Associate',
             'last_name' => 'Two',
             'phone' => '0909348438',
             'email' => 'expert_two@gradsuccess.org',
             'password' => bcrypt('password'),
-            'account_type' => 'Expert',
+            'account_type' => 'Associate',
         ]);
     }
 }

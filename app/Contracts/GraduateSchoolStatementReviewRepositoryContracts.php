@@ -32,5 +32,11 @@ interface GraduateSchoolStatementReviewRepositoryContracts
      */
     public function assign_self(array $GraduateSchoolStatementReviewData): GraduateSchoolStatementReview;
 
+    /**
+     * @param array $GraduateSchoolStatementReviewData
+     * @return GraduateSchoolStatementReview
+     */
+    public function assign_associate(array $GraduateSchoolStatementReviewData): GraduateSchoolStatementReview;
+
 
 }

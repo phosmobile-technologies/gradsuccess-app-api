@@ -3,6 +3,7 @@
 
 namespace App\Services;
 
+use App\Events\AssignAssociatePackage;
 use App\Events\AssignSelfPackage;
 use App\Events\NewPackageCreated;
 use App\Events\PackageApproved;
@@ -49,7 +50,7 @@ class CoverLetterReviewService
      */
     public function decline_assign(array  $assign_data)
     {
-        $package = $this->cover_letter_review_repository->assign_self($assign_data);
+        $package = $this->cover_letter_review_repository->decline_assign($assign_data);
         $user_cont = new UserController();
         $expert = $user_cont->getUserById($assign_data["associate_id"]);
 
@@ -69,7 +70,7 @@ class CoverLetterReviewService
      */
     public function approve_assign(array  $assign_data)
     {
-        $package = $this->cover_letter_review_repository->assign_self($assign_data);
+        $package = $this->cover_letter_review_repository->approve_assign($assign_data);
         $user_cont = new UserController();
         $associate = $user_cont->getUserById($assign_data["associate_id"]);
         $user = $user_cont->getUserById($package->user_id);
@@ -103,5 +104,28 @@ class CoverLetterReviewService
 
         return $package;
     }
+
+    /**
+     * @param array $assign_data
+     * @return mixed
+     */
+    public function assign_associate(array  $assign_data)
+    {
+        $package = $this->cover_letter_review_repository->assign_associate($assign_data);
+        $user_cont = new UserController();
+        $associate = $user_cont->getUserById($assign_data["associate_id"]);
+        $user = $user_cont->getUserById($package->user_id);
+
+        $mail_array = array(
+            'summary'=> $package->summary_of_interest,
+            'name' => $package->name
+        );
+
+        event(new AssignAssociatePackage($user,$mail_array,$associate));
+
+        return $package;
+    }
+
+
 }
 

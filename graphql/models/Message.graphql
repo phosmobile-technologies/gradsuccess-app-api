@@ -1,11 +1,11 @@
 type Messages {
     id: ID!
-    user_id: String!
-    associate_id: String!
-    message_body: String
-    attachment_ref: String
-    attachment_name: String
-    message_type: MessageType!
+    sender_id: ID!
+    recipient_id: ID!
+    message: String
+    attached_file: String
+    attached_file_name: String
+    attached_file_type: MessageType!
     created_at: DateTime!
     updated_at: DateTime!
 }
@@ -13,7 +13,7 @@ type Messages {
 
 enum MessageType {
     File
-    Text
     Image
+    None
 }
 

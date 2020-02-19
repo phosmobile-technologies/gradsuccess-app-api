@@ -69,4 +69,21 @@ class CoverLetterRedraftRepository implements CoverLetterRedraftRepositoryContra
 
         return $package;
     }
+
+
+
+    public function assign_associate(array $CoverLetterReviewData): CoverLetterRedraft
+    {
+        // TODO: Implement assign_associate() method.
+
+                $package = CoverLetterRedraft::findOrFail($CoverLetterReviewData['id']);
+
+                $package->status = 'Assigned';
+                $package->assigned_associate_id = $CoverLetterReviewData['associate_id'];
+
+                $package->save();
+
+                return $package;
+    }
+
 }

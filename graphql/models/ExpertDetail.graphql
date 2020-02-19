@@ -1,6 +1,5 @@
 type ExpertDetail {
     id: ID!
-    associate_id: String!
     highest_ranked_university_attended: String!
     qualification_at_university: String!
     employment: String!
@@ -19,6 +18,8 @@ type ExpertDetail {
     user_name: String!
     bank_account_number: String!
     bank_name: String!
+    user_id: ID!
+    detail: User!
     created_at: DateTime
     updated_at: DateTime
 }

@@ -38,12 +38,11 @@ type GraduateSchoolEssayRedraft {
     referee: String!
     attached_file: String
     package: String!
-    assigned_associate_id: String
+    assigned_associate_id: ID
     user_id: ID!
     package_id:ID!
     package: Package @hasOne
     status: PackageStatus!
-    completed: Boolean!
     created_at: DateTime!
     updated_at: DateTime!
 }

@@ -11,9 +11,9 @@ class UserController extends Controller
     /**
      *
      */
-//    gets all registered experts
+//    gets all registered associate
     function fetchAll(){
-       return  $experts = User::where("account_type","Expert")->get();
+        return  $experts = User::where("account_type","Associate")->get();
     }
 
     public function getUserById(string $id){

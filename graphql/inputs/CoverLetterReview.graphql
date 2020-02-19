@@ -3,7 +3,7 @@ input CreateCoverLetterReviewInput {
     industry_applied_for: String!
     summary_of_interest: String!
     attached_file: String
-    assigned_associate_id: String
+    assigned_associate_id: ID
     user_id: ID!
     package_id:ID!
     status: PackageStatus!
@@ -21,4 +21,5 @@ input UpdateCoverLetterReviewInput {
 input AssignCoverLetterReviewInput{
     id:ID!
     associate_id:ID!
+    status: PackageStatus!
 }

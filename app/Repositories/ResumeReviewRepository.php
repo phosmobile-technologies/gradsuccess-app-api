@@ -68,4 +68,18 @@ class ResumeReviewRepository implements ResumeReviewRepositoryContracts
         return $package;
 
     }
+
+public function assign_associate(array $ResumeReviewReviewData): ResumeReview
+{
+    // TODO: Implement assign_associate() method.
+
+    $package = ResumeReview::findOrFail($ResumeReviewReviewData['id']);
+
+        $package->status = 'Assigned';
+        $package->assigned_associate_id = $ResumeReviewReviewData['associate_id'];
+
+        $package->save();
+
+        return $package;
+}
 }

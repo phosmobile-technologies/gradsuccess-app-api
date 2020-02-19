@@ -3,6 +3,7 @@ type Package {
     package_name: String!   #name which resume is based upon
     turn_around_time: TurnAroundTime!
     amount: Float!
+    form_type:FormType!
     created_at: DateTime!
     updated_at: DateTime!
 }
@@ -10,4 +11,13 @@ type Package {
 enum TurnAroundTime {
     Flash
     Regular
+}
+
+enum FormType{
+    COVER_LETTER_REDRAFT
+    COVER_LETTER_REVIEW
+    GRADUATE_SCHOOL_STATEMENT_REVIEW
+    GRADUATE_SCHOOL_ESSAY_REDRAFT
+    RESUME_REVIEW
+
 }

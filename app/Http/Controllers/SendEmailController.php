@@ -45,7 +45,7 @@ class SendEmailController extends Controller
     function sendAssociatesEmail(Request $request)
     {
         $form_id = $request->form_id;
-        $experts = "Expert";
+        $experts = "Associate";
 
         $applicationRequesttoAssign = null;
 

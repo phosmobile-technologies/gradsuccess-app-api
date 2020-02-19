@@ -9,10 +9,9 @@ input CreateUserInput {
 
 
 input UpdateUserInput {
+    id:ID!
     first_name: String
     last_name: String
     phone: String
     email: String
-    password: String @bcrypt
-    account_type: String
 }

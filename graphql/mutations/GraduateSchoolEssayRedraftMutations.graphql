@@ -15,6 +15,9 @@ extend type Mutation {
         input: AssignGraduateSchoolEssayRedraftInput! @spread
     ): GraduateSchoolEssayRedraft  @field(resolver: "GraduateSchoolEssayRedraft@assign_self")
 
+    AssignAssociateGraduateSchoolEssayRedraft(
+        input: AssignGraduateSchoolEssayRedraftInput! @spread
+    ): GraduateSchoolEssayRedraft  @field(resolver: "GraduateSchoolEssayRedraft@assign_associate")
 
     UpdateGraduateSchoolEssayRedraft(input: UpdateGraduateSchoolEssayRedraftInput! @spread): GraduateSchoolEssayRedraft
         @update(model: "App\\Models\\GraduateSchoolEssayRedraft")
